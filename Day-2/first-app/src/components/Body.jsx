@@ -1,20 +1,43 @@
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Loading from "./Loading";
 
 function filterData(searchTxt, restaurants) {
   const filterData =  restaurants.filter((restaurant) =>
-    restaurant.info.name.includes(searchTxt)
+    restaurant?.info?.name?.toLowerCase()?.includes(searchTxt.toLowerCase())
   );
 
   return filterData;
 }
 
 const Body = () => {
+  const [allRestaurants, setAllRestaurants] = useState([])
+  const [filteredRestaurants, setFilteredRestaurants] = useState([])
   const [searchTxt, setSearchTxt] = useState("");
-  const [restaurants, setRestaurants] = useState(restaurantList);
 
-  return (
+  // This is used to do the dependent changes
+  useEffect(() => {
+    getRestaurants()
+  }, [])
+
+  async function getRestaurants() {
+    try {
+      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6558126&lng=77.2419522&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const data = await response.json();
+      
+      setAllRestaurants(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRestaurants(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    } catch (error) {
+      console.error("Error fetching restaurant data:", error);
+    }
+  }
+
+  // if (filteredRestaurants?.length === 0) return <h1>No Restaurant Found!!</h1> 
+
+  if (!allRestaurants) return null;
+    
+  return (allRestaurants?.length === 0) ? <Loading /> :(
     <div className="body">
       <div className="search-container">
         <input
@@ -26,14 +49,15 @@ const Body = () => {
             const searchText = e.target.value;
             setSearchTxt(searchText);
             if (searchText === "") {
-              setRestaurants(restaurantList);
+              setFilteredRestaurants(allRestaurants);
             }
           }}
         />
         <button
+          className="btn"
           onClick={() => {
-            const data = filterData(searchTxt, restaurants);
-            setRestaurants(data);
+            const data = filterData(searchTxt, allRestaurants);
+            setFilteredRestaurants(data);
           }}
         >
           Search
@@ -43,7 +67,7 @@ const Body = () => {
       <div className="products">
         {/* <h1 className="card-heading">Restaurants</h1> */}
         <div className="card-container">
-          {restaurants.map((restaurant) => {
+          {filteredRestaurants.map((restaurant) => {
             return (
               <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
             );
