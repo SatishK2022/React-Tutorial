@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -6,14 +7,22 @@ const Header = () => {
     return (
       <>
       <nav className='container'>
-        <a href="/">
+        <Link to="/">
           <img src="https://lh3.googleusercontent.com/Em7AHf7XBH_RtGfCBVXz9RH8SM_pHkj3xPP-yd3cRguY1_Jc8fmqgx6WxnvGVyPV5xs5gL3HCD0FCuv6Xo4CwoY6ak4" alt="Logo" />
-        </a>
+        </Link>
         <ul className="nav-links">
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Cart</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
           {
             (isLoggedIn) ? <button className="btn" onClick={() => setIsLoggedIn(false)}>Logout</button> : <button className="btn" onClick={() => setIsLoggedIn(true)}>Login</button>
           }   

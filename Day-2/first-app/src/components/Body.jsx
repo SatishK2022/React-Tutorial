@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
-import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 function filterData(searchTxt, restaurants) {
   const filterData =  restaurants.filter((restaurant) =>
@@ -65,11 +65,11 @@ const Body = () => {
       </div>
 
       <div className="products">
-        {/* <h1 className="card-heading">Restaurants</h1> */}
+        <h1 className="card-heading">Restaurants</h1>
         <div className="card-container">
           {filteredRestaurants.map((restaurant) => {
             return (
-              <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
+                <RestaurantCard {...restaurant.info} key={restaurant.info.id}/>
             );
           })}
         </div>
