@@ -65,14 +65,14 @@ const Body = () => {
       </div>
 
       <div className="products">
-        <h1 className="card-heading">Restaurants</h1>
-        <div className="card-container">
+        {/* <h1 className="card-heading">Restaurants</h1> */}
           {filteredRestaurants.map((restaurant) => {
             return (
-                <RestaurantCard {...restaurant.info} key={restaurant.info.id}/>
+              <Link className="card-container" to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
+                <RestaurantCard {...restaurant.info} />
+              </Link>
             );
           })}
-        </div>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@
 }
 
 .shimmer-card{
-    width: 30%;
+    min-width: 30%;
     height: 60vh;
     border-radius: 10px;
     margin-bottom: 50px;
@@ -195,19 +195,22 @@ nav ul li a:hover{
     transition: all 0.1s ease-in;
 }
 
-/* .search-container button:hover{
-    background-color: #ff4500;
-    border: 1.5px solid #ff4500;
-    color: #fff;
-} */
-
 .search-container button:active{
     transform: scale(0.95);
 }
 
-.card-container{
-    padding: 0px 40px;
+.products{
     display: flex;
+    flex-wrap: wrap;
+    padding: 0px 40px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-container{
+    min-width: 30%;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -223,7 +226,7 @@ nav ul li a:hover{
 }
 
 .card{
-    width: 30%;
+    width: 100%;
     height: auto;
     background-color: #fff;
     border-radius: 10px;
@@ -282,4 +285,115 @@ nav ul li a:hover{
     margin-top: 0px;
     color: #4d4d4d;
     font-weight: 500;
+}
+
+.restaurant-menu-container{
+    /* box-shadow: 2px 2px 20px #d9d9d9; */
+    margin: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.restaurant-menu-img{
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 2px 2px 20px #8f8f8f;
+}
+
+.restaurant-ratings{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-block: 1rem;
+}
+
+.restaurant-menu-heading{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.restaurant-menu{
+    padding: 1rem 50px;
+}
+
+li{
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.restaurant-menu-details .menu-desc{
+    margin-bottom: 1rem;
+    color: #8c8c8c;
+}
+
+.menu-image{
+    height: 250px;
+    width: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 2px 2px 20px #d9d9d9;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-image:hover{
+    transform: scale(1.05);
+}
+
+.restaurant-menu-details{
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-block: 2rem;
+    box-shadow: 2px 2px 20px #d9d9d9;
+    padding: 20px 20px;
+    border-radius: 20px;
+}
+
+.menu-price{
+    font-size: 20px;
+    margin-block: 10px;
+    color: black;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 500px) {
+    .card{
+        width: 100vw;
+    }
+
+    .restaurant-menu-container{
+        flex-direction: column;
+        margin: 30px 20px;
+    }
+
+    .restaurant-menu-img{
+        width: 100%;
+    }
+
+    .restaurant-menu-details{
+        flex-direction: column;
+        padding: 30px 20px;
+        margin-block: 20px;
+    }
+
+    .menu-image{
+        width: 100%;
+    }
+
+    nav ul{
+        display: none;
+    }
+
+    nav{
+        padding-inline: 20px ;
+    }
+
+    .restaurant-menu{
+        padding: 1rem 20px;
+    }
+
 }
