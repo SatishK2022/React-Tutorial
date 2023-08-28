@@ -7,6 +7,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Contact from './components/Contact'
 import Body from './components/Body'
 import RestaurantMenu from './components/RestaurantMenu'
+import Profile from './components/Profile'
+import ProfileClass from './components/ProfileClass'
 
 const appRouter = createBrowserRouter([
   {
@@ -20,7 +22,17 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About />
+        element: <About />, 
+        // children: [
+        //   {
+        //     path: 'profile',
+        //     element: <Profile name="Satish Kumar" desig="Web Developer"/>
+        //   },
+        //   {
+        //     path: 'profileclass',
+        //     element: <ProfileClass name="Nagender Kumar" desig="Front End Developer" />
+        //   }
+        // ]
       },
       {
         path: '/contact',
