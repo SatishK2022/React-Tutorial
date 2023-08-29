@@ -16,8 +16,8 @@ const useOnline = () => {
         window.addEventListener("offline", handleOffline);
 
         return () => {
-            window.removeEventListener(handleOffline);
-            window.removeEventListener(handleOnline);
+            window.removeEventListener("online", handleOffline);
+            window.removeEventListener("offline", handleOnline);
         }
     }, [])
 
