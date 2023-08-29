@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import useOnline from "../hooks/useOnline"
 
 const Header = () => {
-
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const isOnline = useOnline();
     return (
       <>
       <nav className='container'>
@@ -21,7 +23,13 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
+            <Link to="/instamart">Instamart</Link>
+          </li>
+          <li>
             <Link to="/cart">Cart</Link>
+          </li>
+          <li>
+            {(isOnline)? '🟢': '🔴'}
           </li>
           {
             (isLoggedIn) ? <button className="btn" onClick={() => setIsLoggedIn(false)}>Logout</button> : <button className="btn" onClick={() => setIsLoggedIn(true)}>Login</button>

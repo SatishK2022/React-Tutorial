@@ -2,14 +2,10 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
+import { filterData } from "../utils/helper";
+import useOnline from "../hooks/useOnline";
+import OFFLINE from "../assets/offline.svg"
 
-function filterData(searchTxt, restaurants) {
-  const filterData =  restaurants.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase()?.includes(searchTxt.toLowerCase())
-  );
-
-  return filterData;
-}
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([])
@@ -23,17 +19,21 @@ const Body = () => {
 
   async function getRestaurants() {
     try {
-      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6558126&lng=77.2419522&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.076090&lng=72.877426&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
       const data = await response.json();
       
-      setAllRestaurants(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      setFilteredRestaurants(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setAllRestaurants(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setFilteredRestaurants(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     } catch (error) {
       console.error("Error fetching restaurant data:", error);
     }
   }
 
-  // if (filteredRestaurants?.length === 0) return <h1>No Restaurant Found!!</h1> 
+  const isOnline = useOnline();
+
+  if(!isOnline) {
+    return <h1>🔴 OFFLINE, Please Check Your Internet Connection!!</h1>
+  }
 
   if (!allRestaurants) return null;
     

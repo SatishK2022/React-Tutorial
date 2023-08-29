@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
 import Loading from "./Loading";
@@ -8,26 +7,14 @@ import {
   FaHouseChimney,
   FaIndianRupeeSign,
 } from "react-icons/fa6";
+import useRestaurant from "../hooks/useRestaurant";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
-  const [restaurant, setRestaurant] = useState({});
 
-  async function getRestaurantInfo() {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=" +
-        id
-    );
-    const data = await response.json();
-    setRestaurant(data);
-    console.log(data);
-  }
+  const restaurant = useRestaurant(id);
 
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-
-  if (!restaurant.data) {
+  if (!restaurant?.data) {
     return <Loading />;
   }
 
