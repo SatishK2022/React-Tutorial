@@ -38,11 +38,11 @@ const Body = () => {
   if (!allRestaurants) return null;
     
   return (allRestaurants?.length === 0) ? <Loading /> :(
-    <div className="body">
-      <div className="search-container">
+    <div className="h-auto w-full px-5 pt-20 md:pt-28 lg:pt-32 bg-orange-100">
+      <div className="flex flex-col items-center gap-4">
         <input
+          className="w-full md:w-3/4 lg:w-1/2 border border-gray-400 py-2 px-5 rounded-md outline-none focus:bg-sky-100 focus:border-sky-500"
           type="text"
-          className="search-input"
           placeholder="Search..."
           value={searchTxt}
           onChange={(e) => {
@@ -54,7 +54,7 @@ const Body = () => {
           }}
         />
         <button
-          className="btn"
+          className="bg-orange-500 text-white font-semibold py-2 px-5 rounded hover:bg-orange-600"
           onClick={() => {
             const data = filterData(searchTxt, allRestaurants);
             setFilteredRestaurants(data);
@@ -64,11 +64,11 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="products">
+      <div className="flex items-start flex-wrap justify-evenly mt-10">
         {/* <h1 className="card-heading">Restaurants</h1> */}
           {filteredRestaurants.map((restaurant) => {
             return (
-              <Link className="card-container" to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
+              <Link className="w-full md:w-[45%] lg:w-[30%] bg-white rounded-2xl overflow-hidden shadow-lg mb-10" to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
                 <RestaurantCard {...restaurant.info} />
               </Link>
             );
