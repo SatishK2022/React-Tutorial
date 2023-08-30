@@ -6,7 +6,7 @@ const RestaurantCard = ({name, cloudinaryImageId, avgRating, cuisines, areaName}
       <>
         <img className="h-60 w-full object-cover" src={IMG_CDN_URL + cloudinaryImageId} alt="Chai" />
         <div className="p-5">
-          <h2 className="text-2xl font-bold">{name}</h2>
+          <h2 className="text-2xl font-bold whitespace-nowrap overflow-x-scroll no-scrollbar ">{name}</h2>
           <div className="flex whitespace-nowrap justify-between gap-5 overflow-hidden py-2">
             <p className="overflow-x-scroll text-sm no-scrollbar">{cuisines.join(", ")}</p>
             <p className='font-semibold'>⭐{avgRating}</p>

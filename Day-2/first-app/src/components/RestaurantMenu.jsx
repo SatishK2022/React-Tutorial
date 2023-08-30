@@ -22,53 +22,54 @@ const RestaurantMenu = () => {
 
   return (
     <>
-        <div className="restaurant-menu-container">
+        <div className="h-auto w-full bg-orange-100 flex pt-40">
             <div>
             <img
-                className="restaurant-menu-img"
+                className=""
                 src={IMG_CDN_URL + res.cloudinaryImageId}
             />
             </div>
             <div>
-                <h1>{res?.name}</h1>
-                <div className="restaurant-ratings">
-                    <p>
-                    <FaLocationDot /> {res.areaName}
-                    </p>
-                    <p>
-                    <FaStar /> {res.avgRating}
-                    </p>
-                </div>
+            <h1>{res?.name}</h1>
+            <div className="">
                 <p>
-                    <FaHouseChimney /> {res.labels[1].message}
+                <FaLocationDot /> {res.areaName}
+                </p>
+                <p>
+                <FaStar /> {res.avgRating}
                 </p>
             </div>
+            <p>
+                <FaHouseChimney /> {res.labels[1].message}
+            </p>
+            </div>
         </div>
-        <div className="restaurant-menu">
-            <h2 className="restaurant-menu-heading">MENU</h2>
-            {restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards?.map(
-            (menu) => (
-                <div key={menu?.card?.info?.id} className="restaurant-menu-details">
-                    <div>
-                        <img
-                        className="menu-image"
-                        src={IMG_CDN_URL + menu?.card?.info.imageId}
-                        />
-                    </div>
-                    <div>
-                        <h2>{menu?.card?.info?.name}</h2>
-                        <p className="menu-price">
-                        <FaIndianRupeeSign />
-                        {(menu?.card?.info?.price / 100).toFixed(2)}
-                        </p>
-                        <p className="menu-desc" key={menu?.card?.info?.id}>
-                        {menu?.card?.info?.description}
-                        </p>
-                    </div>
-                </div>
-            )
-            )}
-        </div>
+
+      <div className="h-auto w-full bg-orange-100">
+        <h2 className="">MENU</h2>
+        {restaurant?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards?.map(
+          (menu) => (
+            <div key={menu?.card?.info?.id} className="">
+              <div>
+                <img
+                  className=""
+                  src={IMG_CDN_URL + menu?.card?.info.imageId}
+                />
+              </div>
+              <div>
+                <h2>{menu?.card?.info?.name}</h2>
+                <p className="">
+                  <FaIndianRupeeSign />
+                  {(menu?.card?.info?.price / 100).toFixed(2)}
+                </p>
+                <p className="" key={menu?.card?.info?.id}>
+                  {menu?.card?.info?.description}
+                </p>
+              </div>
+            </div>
+          )
+        )}
+      </div>
     </>
   );
 };
