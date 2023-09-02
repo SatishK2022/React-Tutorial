@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import userContext from "../utils/userContext";
+
 const Footer = () => {
+  const {user} = useContext(userContext);
+
   return (
     <>
       <div className="flex items-center flex-col md:flex-row justify-evenly py-5 px-10 gap-5 bg-slate-200">
@@ -60,6 +65,7 @@ const Footer = () => {
           <li className="cursor-pointer transition duration-300 hover:translate-x-1">Pune</li>
         </ul>
       </div>
+      <p className="text-center text-lg py-2 bg-gray-800 text-white">This app is developed with ❤️ by <span className="font-semibold">{user.name}</span></p>
     </>
   );
 };

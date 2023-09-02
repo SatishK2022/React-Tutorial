@@ -18,28 +18,28 @@ const Header = () => {
           />
         </Link>
         <ul className="md:flex items-center gap-8 hidden ">
-          <li className="text-lg font-semibold hover:text-orange-500">
+          <li className="text-lg font-semibold hover:text-orange-500 transition duration-300">
             <Link to="/">Home</Link>
           </li>
-          <li className="text-lg font-semibold hover:text-orange-500">
+          <li className="text-lg font-semibold hover:text-orange-500 transition duration-300">
             <Link to="/about">About</Link>
           </li>
-          <li className="text-lg font-semibold hover:text-orange-500">
+          <li className="text-lg font-semibold hover:text-orange-500 transition duration-300">
             <Link to="/contact">Contact</Link>
           </li>
-          <li className="text-lg font-semibold hover:text-orange-500">
+          <li className="text-lg font-semibold hover:text-orange-500 transition duration-300">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li className="text-lg font-semibold hover:text-orange-500">
+          <li className="text-lg font-semibold hover:text-orange-500 transition duration-300">
             <Link to="/cart">Cart</Link>
           </li>
-          <li className="text-lg font-semibold hover:text-orange-500">{isOnline ? "🟢" : "🔴"}</li>
+          <li>{isOnline ? "🟢" : "🔴"}</li>
           {isLoggedIn ? (
-            <button className="bg-orange-500 text-white font-semibold py-2 px-5 rounded hover:bg-orange-600" onClick={() => setIsLoggedIn(false)}>
+            <button className="bg-orange-500 text-white font-semibold py-2 px-5 rounded hover:bg-orange-600 transition duration-300" onClick={() => setIsLoggedIn(false)}>
               Logout
             </button>
           ) : (
-            <button className="bg-orange-500 text-white font-semibold py-2 px-5 rounded hover:bg-orange-600" onClick={() => setIsLoggedIn(true)}>
+            <button className="bg-orange-500 text-white font-semibold py-2 px-5 rounded hover:bg-orange-600 transition duration-300" onClick={() => setIsLoggedIn(true)}>
               Login
             </button>
           )}
