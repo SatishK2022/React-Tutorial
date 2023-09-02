@@ -64,11 +64,11 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="flex items-start flex-wrap justify-evenly mt-10">
+      <div className=" flex items-start flex-wrap justify-evenly mt-10 ">
         {/* <h1 className="card-heading">Restaurants</h1> */}
           {filteredRestaurants.map((restaurant) => {
             return (
-              <Link className="w-full md:w-[45%] lg:w-[30%] bg-white rounded-2xl overflow-hidden shadow-lg mb-10" to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
+              <Link className=" w-full md:w-[45%] lg:w-[30%] bg-white rounded-2xl overflow-hidden shadow-lg mb-10 transition duration-300 hover:scale-[0.98]" to={`/restaurants/${restaurant.info.id}`} key={restaurant.info.id}>
                 <RestaurantCard {...restaurant.info} />
               </Link>
             );

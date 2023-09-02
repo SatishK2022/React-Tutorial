@@ -28,36 +28,36 @@ const Footer = () => {
           <p className="w-full">© 2023 Food Villa Pvt. Ltd</p>
         </div>
 
-        <ul className=" flex flex-col gap-2 transition ease-in-out duration-700">
+        <ul className=" flex flex-col gap-2 ">
           <h2 className="text-white text-xl font-semibold mb-2">Company</h2>
-          <li className="cursor-pointer hover:translate-x-1">About</li>
-          <li className="cursor-pointer hover:translate-x-1">Careers</li>
-          <li className="cursor-pointer hover:translate-x-1">Team</li>
-          <li className="cursor-pointer hover:translate-x-1">Instamart</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">About</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Careers</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Team</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Instamart</li>
         </ul>
 
         <div>
-          <ul className=" flex flex-col gap-2 transition ease-in-out duration-700">
+          <ul className=" flex flex-col gap-2">
             <h2 className="text-white text-xl font-semibold mb-2">Contact Us</h2>
-            <li className="cursor-pointer hover:translate-x-1">Help & Support</li>
-            <li className="cursor-pointer hover:translate-x-1">Partner with Us</li>
-            <li className="cursor-pointer hover:translate-x-1">Ride With Us</li>
+            <li className="cursor-pointer transition duration-300 hover:translate-x-1">Help & Support</li>
+            <li className="cursor-pointer transition duration-300 hover:translate-x-1">Partner with Us</li>
+            <li className="cursor-pointer transition duration-300 hover:translate-x-1">Ride With Us</li>
           </ul>
           <ul className=" flex flex-col gap-2 mt-10 transition ease-in-out duration-700">
             <h2 className="text-white text-xl font-semibold mb-2">Legal</h2>
-            <li className="cursor-pointer hover:translate-x-1">Terms & Conditions</li>
-            <li className="cursor-pointer hover:translate-x-1">Cookie Policy</li>
-            <li className="cursor-pointer hover:translate-x-1">Privacy Policy</li>
+            <li className="cursor-pointer transition duration-300 hover:translate-x-1">Terms & Conditions</li>
+            <li className="cursor-pointer transition duration-300 hover:translate-x-1">Cookie Policy</li>
+            <li className="cursor-pointer transition duration-300 hover:translate-x-1">Privacy Policy</li>
           </ul>
         </div>
         <ul className=" flex flex-col gap-2 transition ease-in-out duration-700">
           <h2 className="text-white text-xl font-semibold mb-2">We Deliver To:</h2>
-          <li className="cursor-pointer hover:translate-x-1">Banglore</li>
-          <li className="cursor-pointer hover:translate-x-1">Hydrabad</li>
-          <li className="cursor-pointer hover:translate-x-1">Gurgaon</li>
-          <li className="cursor-pointer hover:translate-x-1">Delhi</li>
-          <li className="cursor-pointer hover:translate-x-1">Mumbai</li>
-          <li className="cursor-pointer hover:translate-x-1">Pune</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Banglore</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Hydrabad</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Gurgaon</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Delhi</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Mumbai</li>
+          <li className="cursor-pointer transition duration-300 hover:translate-x-1">Pune</li>
         </ul>
       </div>
     </>
