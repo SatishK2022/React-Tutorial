@@ -7,9 +7,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Contact from "./components/Contact";
 import Body from "./components/Body";
 import RestaurantMenu from "./components/RestaurantMenu";
-import Profile from "./components/Profile";
-import ProfileClass from "./components/ProfileClass";
 import { lazy, Suspense } from "react";
+import Cart from "./components/Cart";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 
@@ -26,16 +25,6 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-        // children: [
-        //   {
-        //     path: 'profile',
-        //     element: <Profile name="Satish Kumar" desig="Web Developer"/>
-        //   },
-        //   {
-        //     path: 'profileclass',
-        //     element: <ProfileClass name="Nagender Kumar" desig="Front End Developer" />
-        //   }
-        // ]
       },
       {
         path: "/contact",
@@ -44,6 +33,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:id",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       },
       {
         path: "/instamart",

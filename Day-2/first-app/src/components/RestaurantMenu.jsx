@@ -8,9 +8,21 @@ import {
   FaIndianRupeeSign,
 } from "react-icons/fa6";
 import useRestaurant from "../hooks/useRestaurant";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
   const { id } = useParams();
+
+  const dispatch = useDispatch();
+
+  // function handleAddItem() {
+  //   dispatch(addItem("Satish"));
+  // }
+
+  function addFoodItem(item) {
+    dispatch(addItem(item));
+  }
 
   const restaurant = useRestaurant(id);
 
@@ -26,7 +38,7 @@ const RestaurantMenu = () => {
         <div className="w-full md:w-[50vw]">
           <img
             className="w-full md:w-[50vw] h-80 object-cover rounded-xl"
-            src={IMG_CDN_URL + res.cloudinaryImageId}
+            src={IMG_CDN_URL + res?.cloudinaryImageId}
           />
         </div>
         <div className="w-full md:w-[50vw] flex flex-col gap-2">
@@ -63,6 +75,7 @@ const RestaurantMenu = () => {
                 <p className="text-base font-normal" key={menu?.card?.info?.id}>
                   {menu?.card?.info?.description}
                 </p>
+                <button onClick={() => addFoodItem(menu?.card?.info)} className="w-28 py-2 text-white mt-2 font-semibold bg-green-400 rounded hover:bg-green-500 active:scale-95 transition duration-300 ">Add Item</button>
               </div>
             </div>
           )

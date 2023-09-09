@@ -2,11 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../hooks/useOnline";
 import { FaBars } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const isOnline = useOnline();
+
+  const cartItems = useSelector(store => store.cart.items);
+  console.log(cartItems)
   return (
     <>
       <nav className="flex items-center justify-between px-5 md:px-8 lg:px-10 shadow-lg fixed top-0 z-20 bg-gradient-to-br from-orange-200 to-white inset-x-0">
@@ -31,7 +35,7 @@ const Header = () => {
             <Link to="/instamart">Instamart</Link>
           </li>
           <li className="text-lg font-semibold hover:text-orange-500 transition duration-300">
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart <span className="text-sm text-white font-semibold bg-green-500 py-1 px-3 rounded">{cartItems.length}</span></Link>
           </li>
           <li>{isOnline ? "🟢" : "🔴"}</li>
           {isLoggedIn ? (
