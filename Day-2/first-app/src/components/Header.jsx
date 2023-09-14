@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../hooks/useOnline";
 import { FaBars } from "react-icons/fa6";
 import { useSelector } from "react-redux";
+import userContext from "../context/userContext";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,6 +12,8 @@ const Header = () => {
 
   const cartItems = useSelector(store => store.cart.items);
   console.log(cartItems)
+
+  // const {user, setUser} = useContext(userContext)
   return (
     <>
       <nav className="flex items-center justify-between px-5 md:px-8 lg:px-10 shadow-lg fixed top-0 z-20 bg-gradient-to-br from-orange-200 to-white inset-x-0">
@@ -22,6 +25,11 @@ const Header = () => {
           />
         </Link>
         <ul className="md:flex items-center gap-8 hidden ">
+          {/* <li>
+            {user.name}
+            {user.email}
+            <button onClick={() => setUser({name: "Nagender", email: "nagender@gmail.com"})}>Click me</button>
+          </li> */}
           <li className="text-lg font-semibold hover:text-orange-500 transition duration-300">
             <Link to="/">Home</Link>
           </li>

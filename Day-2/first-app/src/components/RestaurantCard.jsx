@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { IMG_CDN_URL } from "../constants"
 import { FaLocationDot } from "react-icons/fa6";
+import userContext from "../context/userContext";
 
 const RestaurantCard = ({name, cloudinaryImageId, avgRating, cuisines, areaName}) => {
+  // const { user, setUser } = useContext(userContext);
+
     return (
       <>
         <img className="h-60 w-full object-cover" src={IMG_CDN_URL + cloudinaryImageId} alt="Chai" />
@@ -12,7 +16,9 @@ const RestaurantCard = ({name, cloudinaryImageId, avgRating, cuisines, areaName}
             <p className='font-semibold'>⭐{avgRating}</p>
           </div>
           <p className='text-slate-600 font-medium flex items-center gap-2'><FaLocationDot />{areaName}</p>
+          {/* <p>Author: {user.name}</p> */}
         </div>
+        {/* <button onClick={() => setUser({name: "Nagender"})}>Click me</button> */}
       </>
     )
 }
